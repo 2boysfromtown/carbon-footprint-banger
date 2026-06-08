@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
 import { createServer } from 'node:http';
+import { sep } from 'node:path';
 import { test } from 'node:test';
 import { createRequestHandler, isPublicAsset, resolveRequestPath } from '../server.js';
 
@@ -13,7 +14,7 @@ function request(port, path, method = 'GET') {
 
 test('resolveRequestPath rejects directory traversal attempts', () => {
   assert.equal(resolveRequestPath('/%2e%2e%2fREADME.md'), null);
-  assert.ok(resolveRequestPath('/src/main.js').endsWith('src/main.js'));
+  assert.ok(resolveRequestPath('/src/main.js').endsWith(`src${sep}main.js`));
 });
 
 test('isPublicAsset only allows the app shell and source assets', () => {

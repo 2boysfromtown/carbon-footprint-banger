@@ -1,10 +1,10 @@
-# CarbonWise — Carbon Footprint Awareness Platform
+# CarbonWise - Carbon Footprint Awareness Platform
 
-CarbonWise is a lightweight web app built for **PromptWars Virtual · Main Challenge 3**. It helps individuals understand, track, and reduce their carbon footprint through simple inputs, transparent calculations, and personalized action recommendations.
+CarbonWise is a lightweight web app built for **PromptWars Virtual | Main Challenge 3**. It helps individuals understand, track, and reduce their carbon footprint through simple inputs, transparent calculations, and personalized action recommendations.
 
 ## Chosen vertical
 
-**Carbon Footprint Awareness Platform** — a practical assistant for individuals who want quick, understandable climate guidance without needing expert knowledge or complex carbon accounting tools.
+**Carbon Footprint Awareness Platform** - a practical assistant for individuals who want quick, understandable climate guidance without needing expert knowledge or complex carbon accounting tools.
 
 ## Approach and logic
 
@@ -19,9 +19,9 @@ The app then:
 
 1. Normalizes inputs to avoid negative or invalid values.
 2. Applies documented emission factors in `src/carbon.js`.
-3. Calculates weekly and annual CO₂e totals by category.
+3. Calculates weekly and annual CO2e totals by category.
 4. Identifies the largest category for the user.
-5. Selects relevant reduction actions only when the user's profile matches each action trigger.
+5. Selects all relevant reduction actions only when the user's profile matches each action trigger.
 6. Sorts recommendations by estimated weekly savings so the highest-impact action appears first.
 7. Persists the profile and completed actions in local storage so users can return to their plan.
 

@@ -182,7 +182,7 @@ function renderAction(action) {
       createElement('span', { textContent: action.category }),
       createElement('strong', { textContent: action.title }),
       createElement('p', {
-        textContent: `${formatKg(action.weeklySavingsKg)} kg CO₂e saved weekly · ${action.effort} effort`,
+        textContent: `${formatKg(action.weeklySavingsKg)} kg CO2e saved weekly | ${action.effort} effort`,
       }),
     ]),
     createElement('label', { className: 'action-check', for: actionId }, [
@@ -202,8 +202,8 @@ function renderResults() {
 
   document.querySelector('#score-label').textContent = score.label;
   document.querySelector('#score-label').className = `status status-${score.tone}`;
-  document.querySelector('#weekly-total').textContent = `${formatKg(footprint.weeklyTotal)} kg CO₂e`;
-  document.querySelector('#annual-total').textContent = `per week · ${formatKg(footprint.annualTotal / 1000)} tonnes per year`;
+  document.querySelector('#weekly-total').textContent = `${formatKg(footprint.weeklyTotal)} kg CO2e`;
+  document.querySelector('#annual-total').textContent = `per week | ${formatKg(footprint.annualTotal / 1000)} tonnes per year`;
   document.querySelector('#score-meter').style.width = `${score.value}%`;
   document.querySelector('#score-meter-wrapper').setAttribute('aria-valuenow', String(score.value));
   document.querySelector('#score-meter-wrapper').setAttribute('aria-label', `Awareness score ${score.value} out of 100`);
@@ -229,7 +229,7 @@ function renderResults() {
       createElement('div', { className: 'category-row' }, [
         createElement('div', {}, [
           createElement('strong', { textContent: CATEGORY_LABELS[key] }),
-          createElement('span', { textContent: `${formatKg(value)} kg CO₂e` }),
+          createElement('span', { textContent: `${formatKg(value)} kg CO2e` }),
         ]),
         createElement(
           'div',
@@ -251,7 +251,7 @@ function renderResults() {
   insights.append(
     createElement('div', { className: 'savings-card' }, [
       createElement('span', { textContent: 'Potential annual reduction from this plan' }),
-      createElement('strong', { textContent: `${formatKg(annualPlanSavings / 1000)} tonnes CO₂e` }),
+      createElement('strong', { textContent: `${formatKg(annualPlanSavings / 1000)} tonnes CO2e` }),
       createElement('p', {
         textContent: `Completed actions: ${formatKg(progress.annualSavingsKg / 1000)} tonnes saved toward a ${formatKg(progress.targetSavingsKg / 1000)} tonne 20% goal.`,
       }),

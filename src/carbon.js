@@ -59,7 +59,7 @@ export const REDUCTION_ACTIONS = Object.freeze([
     weeklySavingsKg: 22.5,
     effort: 'High',
     trigger(profile) {
-      return profile.flightHours >= 1;
+      return profile.flightHours > 0;
     },
   },
   {
@@ -121,7 +121,7 @@ export function getTopCategory(categories = {}) {
   return Object.entries(categories).sort(([, a], [, b]) => b - a)[0]?.[0] ?? 'transport';
 }
 
-export function getPersonalizedActions(profile, limit = 4) {
+export function getPersonalizedActions(profile, limit = Number.POSITIVE_INFINITY) {
   const normalizedProfile = normalizeProfile(profile);
   return REDUCTION_ACTIONS.filter((action) => action.trigger(normalizedProfile))
     .sort((a, b) => b.weeklySavingsKg - a.weeklySavingsKg)

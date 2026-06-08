@@ -34,6 +34,20 @@ test('recommendations are personalized and sorted by savings', () => {
   assert.ok(actions[0].weeklySavingsKg >= actions.at(-1).weeklySavingsKg);
 });
 
+test('recommendations include occasional flights and every matching action', () => {
+  const actions = getPersonalizedActions({
+    ...DEFAULT_PROFILE,
+    flightHours: 0.25,
+    carKm: 60,
+    meatMeals: 7,
+    electricityKwh: 75,
+    shoppingDollars: 45,
+  });
+
+  assert.equal(actions.length, 5);
+  assert.ok(actions.some((action) => action.id === 'flight-budget'));
+});
+
 test('top category and score respond to totals', () => {
   const footprint = calculateFootprint({ ...DEFAULT_PROFILE, flightHours: 5 });
 
@@ -41,7 +55,6 @@ test('top category and score respond to totals', () => {
   assert.equal(getScore(250).label, 'High impact');
   assert.equal(getScore(30).label, 'Low impact');
 });
-
 
 test('reduction progress tracks completed actions toward a target', () => {
   const actions = getPersonalizedActions(DEFAULT_PROFILE);
