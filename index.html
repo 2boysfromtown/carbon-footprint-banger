@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CarbonWise helps individuals understand, track, and reduce their carbon footprint with personalized, practical insights."
+    />
+    <title>CarbonWise | Carbon Footprint Awareness Platform</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <main id="main-content">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">PromptWars Virtual · Main Challenge 3</p>
+          <h1 id="page-title">CarbonWise turns everyday habits into a practical climate action plan.</h1>
+          <p>Estimate your weekly footprint, spot the biggest driver, and get a personalized set of simple actions you can start today.</p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button" href="#calculator">Start calculator</a>
+            <a class="button button-secondary" href="#insights">View insights</a>
+          </div>
+        </div>
+        <aside class="score-card" aria-label="Current footprint summary">
+          <span id="score-label" class="status">Calculating</span>
+          <strong id="weekly-total">0 kg CO₂e</strong>
+          <span id="annual-total">per week · 0 tonnes per year</span>
+          <div id="score-meter-wrapper" class="meter" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Awareness score"><span id="score-meter"></span></div>
+        </aside>
+      </section>
+
+      <section class="layout" id="calculator" aria-label="Carbon footprint calculator">
+        <form class="panel" id="profile-form" novalidate></form>
+        <section class="panel results" id="insights" aria-labelledby="insights-title" aria-live="polite">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">AI-ready decision logic</p>
+              <h2 id="insights-title">Personalized insights</h2>
+            </div>
+          </div>
+          <p id="update-status" class="sr-only" role="status"></p>
+          <div id="insights-body"></div>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
